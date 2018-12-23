@@ -1,6 +1,6 @@
 {
   "name": "peschee",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A personal card for Peter Siska (@peschee)",
   "main": "/bin/card.js",
   "bin": {
@@ -11,10 +11,12 @@
     "url": "https://github.com/peschee/card.git"
   },
   "scripts": {
-    "prepublishOnly": "npm run lint",
-    "start": "node bin/card.js",
+    "prepublishOnly": "npm run build",
+    "build": "npm run lint && node build.js",
+    "start": "npm run build && node ./bin/card.js",
     "lint": "standard",
-    "test": "jest"
+    "test": "jest",
+    "pretest": "npm run build"
   },
   "keywords": [
     "card",
@@ -29,11 +31,9 @@
   "files": [
     "bin/card.js"
   ],
-  "dependencies": {
-    "boxen": "^2.1.0",
-    "chalk": "^2.4.1"
-  },
   "devDependencies": {
+    "boxen": "^2.1.0",
+    "chalk": "^2.4.1",
     "jest": "^23.6.0",
     "standard": "^12.0.1"
   },
