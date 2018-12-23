@@ -15,31 +15,31 @@ const options = {
 
 // Text + chalk definitions
 const data = {
-  name: chalk.white('              Peter Siska'),
-  handle: chalk.white('peschee'),
-  work: chalk.white('Executive Board Member at Inventage AG'),
-  twitter: chalk.gray('https://twitter.com/') + chalk.cyan('peschee'),
-  npm: chalk.gray('https://npmjs.com/') + chalk.red('~peschee'),
-  github: chalk.gray('https://github.com/') + chalk.green('peschee'),
-  linkedin: chalk.gray('https://linkedin.com/in/') + chalk.blue('pesche'),
-  npx: chalk.red('npx') + ' ' + chalk.white('peschee'),
-  labelWork: chalk.white.bold('       Work:'),
-  labelTwitter: chalk.white.bold('    Twitter:'),
-  labelnpm: chalk.white.bold('        npm:'),
-  labelGitHub: chalk.white.bold('     GitHub:'),
-  labelLinkedIn: chalk.white.bold('   LinkedIn:'),
-  labelCard: chalk.white.bold('       Card:')
+  name: 'Peter Siska',
+  handle: 'peschee',
+  work: 'Executive Board Member at Inventage AG',
+  twitter: 'https://twitter.com/peschee',
+  npm: 'https://npmjs.com/~peschee',
+  github: 'https://github.com/peschee',
+  linkedin: 'https://linkedin.com/in/pesche',
+  npx: 'npx peschee',
+  labelWork: 'Work:',
+  labelTwitter: 'Twitter:',
+  labelnpm: 'npm:',
+  labelGitHub: 'GitHub:',
+  labelLinkedIn: 'LinkedIn:',
+  labelCard: 'Card:'
 }
 
 // Actual strings we're going to output
 const newline = '\n'
-const heading = `${data.name} / ${data.handle}`
-const working = `${data.labelWork}  ${data.work}`
-const twittering = `${data.labelTwitter}  ${data.twitter}`
-const npming = `${data.labelnpm}  ${data.npm}`
-const githubing = `${data.labelGitHub}  ${data.github}`
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`
-const carding = `${data.labelCard}  ${data.npx}`
+const heading = chalk.white(`${chalk.bold(data.name)} / ${data.handle}`)
+const working = chalk.white(`${chalk.bold(data.labelWork)}      ${data.work}`)
+const twittering = chalk.white(`${chalk.bold(data.labelTwitter)}   ${data.twitter}`)
+const npming = chalk.white(`${chalk.bold(data.labelnpm)}       ${data.npm}`)
+const githubing = chalk.white(`${chalk.bold(data.labelGitHub)}    ${data.github}`)
+const linkedining = chalk.white(`${chalk.bold(data.labelLinkedIn)}  ${data.linkedin}`)
+const carding = chalk.white(`${chalk.bold(data.labelCard)}      ${data.npx}`)
 
 // Put all our output together into a single variable so we can use boxen effectively
 const output = heading + // data.name + data.handle
@@ -51,4 +51,4 @@ const output = heading + // data.name + data.handle
                linkedining + newline + // data.labelLinkedIn + data.linkedin
                carding // data.labelCard + data.npx
 
-console.log(chalk.green(boxen(output, options)))
+console.log(chalk.white(boxen(output, options)))
