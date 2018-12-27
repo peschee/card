@@ -1,17 +1,34 @@
-
 describe('test card.js output', () => {
-  test('calling card.js should contain github url', () => {
-    let output = ''
+  let consoleSpy
+  let consoleOutput
 
-    const spy = jest.spyOn(console, 'log').mockImplementationOnce((message) => {
-      output += message
+  beforeEach(() => {
+    jest.resetModules()
+    consoleSpy = jest.spyOn(console, 'log').mockImplementationOnce((message) => {
+      consoleOutput += message
     })
+  })
 
+  afterEach(() => {
+    expect(console.log).toHaveBeenCalledTimes(1)
+    consoleSpy.mockRestore()
+  })
+
+  test('calling card.js should contain github url', () => {
     require('./bin/card.js')
 
-    expect(console.log).toHaveBeenCalledTimes(1)
-    expect(output).toMatch(/https:\/\/github\.com\/peschee/)
+    expect(consoleOutput).toMatch(/https:\/\/github\.com\/peschee/)
+  })
 
-    spy.mockRestore()
+  test('calling card.js should contain twitter url', () => {
+    require('./bin/card.js')
+
+    expect(consoleOutput).toMatch(/https:\/\/twitter\.com\/peschee/)
+  })
+
+  test('calling card.js should contain card information', () => {
+    require('./bin/card.js')
+
+    expect(consoleOutput).toMatch(/npx peschee/)
   })
 })
