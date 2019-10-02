@@ -35,9 +35,9 @@
   "devDependencies": {
     "boxen": "^4.1.0",
     "chalk": "^2.4.2",
-    "husky": "^3.0.0",
-    "jest": "^24.8.0",
-    "standard": "^12.0.1"
+    "husky": "^3.0.8",
+    "jest": "^24.9.0",
+    "standard": "^14.3.1"
   },
   "standard": {
     "env": [
