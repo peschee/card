@@ -5,4 +5,7 @@ updates:
   schedule:
     interval: daily
     time: "04:00"
+  allowed_updates:
+    - match:
+        update_type: "security"
   open-pull-requests-limit: 10
