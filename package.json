@@ -33,7 +33,7 @@
     "bin/output"
   ],
   "devDependencies": {
-    "boxen": "^4.2.0",
+    "boxen": "^5.0.0",
     "chalk": "^4.1.0",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
