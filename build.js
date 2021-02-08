@@ -18,7 +18,7 @@ const data = {
   name: 'Peter Siska',
   handle: 'peschee',
   work: 'Executive Board Member at Inventage AG',
-  workUrl: 'https://www.inventage.com',
+  workUrl: 'https://inventage.com',
   twitter: 'https://twitter.com/peschee',
   npm: 'https://npmjs.com/~peschee',
   github: 'https://github.com/peschee',
