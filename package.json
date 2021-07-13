@@ -16,7 +16,8 @@
     "start": "npm run build && node ./bin/card.js",
     "lint": "standard",
     "test": "jest",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "prepare": "husky install"
   },
   "keywords": [
     "card",
@@ -35,7 +36,7 @@
   "devDependencies": {
     "boxen": "^5.0.0",
     "chalk": "^4.1.0",
-    "husky": "^7.0.1",
+    "husky": "^7.0.0",
     "jest": "^27.0.3",
     "standard": "^16.0.3"
   },
@@ -43,10 +44,5 @@
     "env": [
       "jest"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm test"
-    }
   }
 }
