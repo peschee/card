@@ -1,34 +1,30 @@
-describe('test card.js output', () => {
-  let consoleSpy
-  let consoleOutput
+import test from 'ava'
 
-  beforeEach(() => {
-    jest.resetModules()
-    consoleSpy = jest.spyOn(console, 'log').mockImplementationOnce((message) => {
-      consoleOutput += message
-    })
-  })
+test.before((t) => {
+  t.context.log = ''
+  console.log = (msg) => {
+    t.context.log += msg
+  }
+})
 
-  afterEach(() => {
-    expect(console.log).toHaveBeenCalledTimes(1)
-    consoleSpy.mockRestore()
-  })
+test.afterEach((t) => {
+  t.context.log = ''
+})
 
-  test('calling card.js should contain github url', () => {
-    require('./bin/card.js')
+test('calling card.js should contain github url', async (t) => {
+  await import('./bin/card.js')
 
-    expect(consoleOutput).toMatch(/https:\/\/github\.com\/peschee/)
-  })
+  t.true(t.context.log.match(/https:\/\/github\.com\/peschee/) !== null)
+})
 
-  test('calling card.js should contain twitter url', () => {
-    require('./bin/card.js')
+test('calling card.js should contain twitter url', async (t) => {
+  await import('./bin/card.js')
 
-    expect(consoleOutput).toMatch(/https:\/\/twitter\.com\/peschee/)
-  })
+  t.true(t.context.log.match(/https:\/\/twitter\.com\/peschee/) !== null)
+})
 
-  test('calling card.js should contain card information', () => {
-    require('./bin/card.js')
+test('calling card.js should contain card information', async (t) => {
+  await import('./bin/card.js')
 
-    expect(consoleOutput).toMatch(/npx peschee/)
-  })
+  t.true(t.context.log.match(/npx peschee/) !== null)
 })
