@@ -1,10 +1,13 @@
 'use strict'
 
 // Pull in our modules
-const chalk = require('chalk')
-const boxen = require('boxen')
-const fs = require('fs')
-const path = require('path')
+import chalk from 'chalk'
+import boxen from 'boxen'
+import fs from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Define options for Boxen
 const options = {
@@ -45,12 +48,12 @@ const carding = chalk.white(`${chalk.bold(data.labelCard)}      ${data.npx}`)
 
 // Put all our output together into a single variable so we can use boxen effectively
 const output = heading + // data.name + data.handle
-               newline + newline + // Add one whole blank line
-               working + newline + newline + // data.labelWork + data.work + data.workUrl
-               twittering + newline + // data.labelTwitter + data.twitter
-               githubing + newline + // data.labelGitHub + data.github
-               linkedining + newline + // data.labelLinkedIn + data.linkedin
-               npming + newline + // data.labelnpm + data.npm
-               newline + carding // data.labelCard + data.npx
+  newline + newline + // Add one whole blank line
+  working + newline + newline + // data.labelWork + data.work + data.workUrl
+  twittering + newline + // data.labelTwitter + data.twitter
+  githubing + newline + // data.labelGitHub + data.github
+  linkedining + newline + // data.labelLinkedIn + data.linkedin
+  npming + newline + // data.labelnpm + data.npm
+  newline + carding // data.labelCard + data.npx
 
 fs.writeFileSync(path.join(__dirname, 'bin/output'), chalk.green(boxen(output, options)))
