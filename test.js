@@ -28,3 +28,9 @@ test('calling card.js should contain card information', async (t) => {
 
   t.true(t.context.log.match(/npx peschee/) !== null)
 })
+
+test('calling card.js should contain linkedin url', async (t) => {
+  await import('./bin/card.js')
+
+  t.true(t.context.log.match(/https:\/\/linkedin\.com\/in\/pesche/) !== null)
+})

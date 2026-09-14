@@ -20,7 +20,7 @@ const options = {
 const data = {
   name: 'Peter Siska',
   handle: 'peschee',
-  work: 'Executive Board Member at Inventage AG',
+  work: 'Co-CEO at Inventage AG',
   workUrl: 'https://inventage.com',
   twitter: 'https://twitter.com/peschee',
   npm: 'https://npmjs.com/~peschee',
