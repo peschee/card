@@ -1,13 +1,17 @@
 'use strict'
 
 // Pull in our modules
-import chalk from 'chalk'
+import { Chalk } from 'chalk'
 import boxen from 'boxen'
 import fs from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+// Output is prebuilt and shipped, so force ANSI colors even when the build runs
+// without a TTY (git hooks, CI). Level 1 = basic 16 colors, all this card needs.
+const chalk = new Chalk({ level: 1 })
 
 // Define options for Boxen
 const options = {
